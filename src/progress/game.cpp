@@ -228,7 +228,6 @@ void Game::Update(float dt)
 
 void Game::Render()
 {
-	
 	if (m_eState == GAME_ACTIVE)
 	{
 		Effects->BeginRender();
@@ -260,7 +259,6 @@ void Game::Render()
 		std::stringstream ss;
 		ss << Lives;
 		Text->RenderText("Lives:" + ss.str(), 5.0f, 5.0f, 1.0f);
-		//Text->RenderText("Level:" + std::to_string(m_level + 1), 5.0f, 55.0f, 1.0f);
 	}
 	if (m_eState == GAME_MENU)
 	{
