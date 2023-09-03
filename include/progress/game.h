@@ -4,6 +4,7 @@
 #include "SpriteRenderer.h"
 #include "game_level.h"
 #include "ball_object.h"
+#include "power_up.h"
 
 //游戏状态
 enum GameState {
@@ -24,10 +25,13 @@ enum Direction {
 // 定义一个碰撞状态，是否碰撞，碰撞到物体的什么方向，碰撞到物体上的点位置
 typedef std::tuple<bool, Direction, glm::vec2> Collision;
 
-// Initial size of the player paddle
+//滑动的板子
 const glm::vec2 PLAYER_SIZE(100, 20);
-// Initial velocity of the player paddle
 const GLfloat PLAYER_VELOCITY(500.0f);
+
+//球
+const glm::vec2 INITIAL_BALL_VELOCITY(100.0f, -350.0f);
+const float BALL_RADIUS = 12.5f;
 
 //游戏的状态与功能
 class Game
@@ -64,11 +68,19 @@ public:
 	
 	//重置玩家
 	void ResetPlayer();
-	std::map<std::string, GameLevel> m_levels;
-	std::string m_strlevel;
+
+	//道具
+	void SpawnPowerUps(GameObject &block);
+	void UpdatePowerUps(float dt);
+
+	std::map<int, GameLevel> m_levels;
+	int m_level;
+	std::vector<PowerUp>    PowerUps;
 	SpriteRenderer*         m_SpriteRenderer;
 	GameState               m_eState;
+	unsigned int            Lives;
 	bool                    m_bKeys[1024];
+	bool                    m_bKeysProcessed[1024];
 	unsigned int            m_uiWidth, m_uiHeight;
 };
 

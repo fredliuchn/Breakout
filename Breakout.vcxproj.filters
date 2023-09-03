@@ -36,9 +36,6 @@
     <ClCompile Include="src\SpriteRenderer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="include\glad\glad.c">
-      <Filter>头文件</Filter>
-    </ClCompile>
     <ClCompile Include="src\progress\game.cpp">
       <Filter>源文件\progress</Filter>
     </ClCompile>
@@ -56,6 +53,9 @@
     </ClCompile>
     <ClCompile Include="src\progress\post_processor.cpp">
       <Filter>源文件\progress</Filter>
+    </ClCompile>
+    <ClCompile Include="src\text_renderer.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +88,12 @@
     </ClInclude>
     <ClInclude Include="include\progress\particle_generator.h">
       <Filter>头文件\progress</Filter>
+    </ClInclude>
+    <ClInclude Include="include\progress\power_up.h">
+      <Filter>头文件\progress</Filter>
+    </ClInclude>
+    <ClInclude Include="include\text_renderer.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
